@@ -20,7 +20,7 @@ int main()
 
     names.push_back("Dalton");
     names.push_back("Brian");
-    names.push_back("Johnny");
+    names.push_back("Len");
 
     string input;
 
