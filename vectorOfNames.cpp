@@ -35,7 +35,7 @@ int main()
             this_thread::sleep_for(chrono::milliseconds(1000));
         }
 
-        do{
+        do{ //Do loop to repeat the choice selection when given an invalid input
 
             cout << "You may choose to Add, Change, Remove, or Show names!\n";
             this_thread::sleep_for(chrono::milliseconds(1000));
@@ -77,9 +77,9 @@ int main()
                 break;
             } else if (input == "REMOVE") { //remove names
 
-                cout << "Which name would you like to remove? This is case-sensitive!\n>>"; //warn player name is case sensitive
+                cout << "Which name would you like to remove? This is case-sensitive!\n>> "; //warn player name is case sensitive
                 getline(cin,input);
-                readIter = find(names.begin(),names.end(), input);
+                readIter = find(names.begin(),names.end(), input); //find the input
                 if(readIter != names.end())
                 {   
                     names.erase(readIter);
@@ -88,8 +88,8 @@ int main()
                 this_thread::sleep_for(chrono::milliseconds(1000));
                 break;
 
-            } else if (input == "SHOW") { //Since the names are listed at the beginning, to list a gain, break the do loop
-
+            } else if (input == "SHOW") { //Since the names are listed at the beginning, to list again, break the do loop
+                sort(names.begin(),names.end()); //sort names
                 break;
 
             } else if (input == "QUIT") { //quit the program
