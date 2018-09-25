@@ -50,13 +50,30 @@ int main()
             if (input == "ADD")
             {   
                 cout << "You'd like to add a name? We can do that!\n";
-                cout << "What name would you like to add?\n>>";
+                cout << "What name would you like to add?\n>> ";
                 getline(cin,input); //reusing input variable.
                 names.push_back(input);
                 break;
 
             } else if (input == "CHANGE") {
 
+                do{ //Do loop in case they enter a name not on the list
+                    cout << "Which name would you like to change? This is case-sensitive!\n>> ";
+                    getline(cin, input);
+                    changeIter = find(names.begin(),names.end(),input);
+
+                    if(changeIter != names.end())
+                    {
+                        cout << "\nFound it! Now, what would you like to change it to?\n>> ";
+                        getline(cin,input);
+                        (*changeIter) = input;
+                        break;
+
+                    } else {
+
+                        cout << "Name not found! Try again.";
+                    }
+                }while(true);
                 break;
             } else if (input == "REMOVE") { //remove names
 
