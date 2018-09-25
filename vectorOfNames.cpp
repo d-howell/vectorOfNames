@@ -57,6 +57,15 @@ int main()
         } else if (input == "CHANGE") {
             break;
         } else if (input == "REMOVE") {
+            cout << "Which name would you like to remove? This is case-sensitive!\n>>";
+            getline(cin,input);
+            readIter = find(names.begin(),names.end(), input);
+            if(readIter != names.end())
+            {
+                names.erase(readIter);
+            }
+            cout << endl << input << " has been removed!\n";
+            this_thread::sleep_for(chrono::milliseconds(1000));
             break;
         } else if (input == "SHOW") {
             break;
