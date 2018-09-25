@@ -26,10 +26,10 @@ int main()
 
     do
     {
-        cout << "Hey there, I've got a list of names for you:\n";
+        cout << "I've got a list of names for you:\n";
         this_thread::sleep_for(chrono::milliseconds(1000));
 
-        for(readIter = names.begin(); readIter != names.end(); ++readIter)
+        for(readIter = names.begin(); readIter != names.end(); ++readIter) //list all names
         {
             cout << *readIter << endl;
             this_thread::sleep_for(chrono::milliseconds(1000));
@@ -56,8 +56,8 @@ int main()
             break;
         } else if (input == "CHANGE") {
             break;
-        } else if (input == "REMOVE") {
-            cout << "Which name would you like to remove? This is case-sensitive!\n>>";
+        } else if (input == "REMOVE") { //remove names
+            cout << "Which name would you like to remove? This is case-sensitive!\n>>"; //warn player name is case sensitive
             getline(cin,input);
             readIter = find(names.begin(),names.end(), input);
             if(readIter != names.end())
@@ -67,16 +67,16 @@ int main()
             cout << endl << input << " has been removed!\n";
             this_thread::sleep_for(chrono::milliseconds(1000));
             break;
-        } else if (input == "SHOW") {
+        } else if (input == "SHOW") { //Since the names are listed at the beginning, to list a gain, break the do loop
             break;
-        } else if (input == "QUIT") {
+        } else if (input == "QUIT") { //quit the program
             break;
         } else {
             cout << "\nInvalid input! Try again.\n";
             this_thread::sleep_for(chrono::milliseconds(1000));
             continue;
         }
-        }while(true);
+        }while(true);//do loop here to return when an invalid input is given
 
-    }while(input != "QUIT");
+    }while(input != "QUIT"); //quit program
 }
