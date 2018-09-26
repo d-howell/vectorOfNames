@@ -76,16 +76,21 @@ int main()
                 }while(true);
                 break;
             } else if (input == "REMOVE") { //remove names
-
-                cout << "Which name would you like to remove? This is case-sensitive!\n>> "; //warn player name is case sensitive
-                getline(cin,input);
-                readIter = find(names.begin(),names.end(), input); //find the input
-                if(readIter != names.end())
-                {   
-                    names.erase(readIter);
-                }
-                cout << endl << input << " has been removed!\n";
-                this_thread::sleep_for(chrono::milliseconds(1000));
+                
+                do{
+                    cout << "Which name would you like to remove? This is case-sensitive!\n>> "; //warn player name is case sensitive
+                    getline(cin,input);
+                    readIter = find(names.begin(),names.end(), input); //find the input
+                    if(readIter != names.end())
+                    {   
+                        names.erase(readIter);
+                    } else {
+                        cout << "I can't seem to find that name, try again.\n";
+                        continue; //Sends to top of loop, ignoring all code below
+                    }
+                    cout << endl << input << " has been removed!\n";
+                    this_thread::sleep_for(chrono::milliseconds(1000));
+                }while(true);
                 break;
 
             } else if (input == "SHOW") { //Since the names are listed at the beginning, to list again, break the do loop
