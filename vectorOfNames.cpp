@@ -89,6 +89,7 @@ int main()
                         continue; //Sends to top of loop, ignoring all code below
                     }
                     cout << endl << input << " has been removed!\n";
+                    break;
                     this_thread::sleep_for(chrono::milliseconds(1000));
                 }while(true);
                 break;
@@ -111,5 +112,8 @@ int main()
 
     }while(input != "QUIT"); //quit program
 
-    
+    this_thread::sleep_for(chrono::milliseconds(1000));
+    cout << "Thank you!";
+    this_thread::sleep_for(chrono::milliseconds(1000));
+
 }
